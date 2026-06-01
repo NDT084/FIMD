@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <h3 className="font-heading text-2xl font-bold mb-4">FIMD EI</h3>
+            <img src="/fimd-ei.png" alt="FIMD EI" className="h-8 w-auto mb-4 brightness-0 invert" />
             <p className="text-sm opacity-70 leading-relaxed">
               Cabinet de conseil industriel spécialisé en performance, agroalimentaire et certifications en Afrique de l'Ouest et Centrale.
             </p>
