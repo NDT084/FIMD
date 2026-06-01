@@ -154,6 +154,7 @@ const Services = () => {
         </div>
       </section>
 
+      <FAQSection />
       <CTASection />
       <Footer />
       <WhatsAppButton />
