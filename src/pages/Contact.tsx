@@ -153,14 +153,14 @@ const Contact = () => {
                   <Mail size={20} className="text-primary mt-0.5 shrink-0" />
                   <div>
                     <h4 className="font-heading font-semibold text-foreground mb-1">Email</h4>
-                    <p className="text-sm text-muted-foreground">contact@fimd-ei.com</p>
+                    <p className="text-sm text-muted-foreground">{CONTACT_EMAIL}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 p-6 rounded-2xl bg-muted">
                   <Phone size={20} className="text-primary mt-0.5 shrink-0" />
                   <div>
                     <h4 className="font-heading font-semibold text-foreground mb-1">Téléphone</h4>
-                    <p className="text-sm text-muted-foreground">+221 XX XXX XX XX</p>
+                    <p className="text-sm text-muted-foreground">{CONTACT_PHONE}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 p-6 rounded-2xl bg-muted">
@@ -171,7 +171,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <a
-                  href="https://wa.me/221XXXXXXXXX?text=Bonjour%20FIMD%20EI"
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour%20FIMD%20EI`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-6 rounded-2xl bg-primary/5 border border-primary/20 hover:bg-primary/10 transition-colors"

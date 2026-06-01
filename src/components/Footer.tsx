@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/contact";
 
 const Footer = () => {
   return (
@@ -58,11 +59,11 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm opacity-70">
                 <Mail size={16} />
-                <span>contact@fimd-ei.com</span>
+                <span>{CONTACT_EMAIL}</span>
               </li>
               <li className="flex items-center gap-2 text-sm opacity-70">
                 <Phone size={16} />
-                <span>+221 XX XXX XX XX</span>
+                <span>{CONTACT_PHONE}</span>
               </li>
               <li className="flex items-start gap-2 text-sm opacity-70">
                 <MapPin size={16} className="mt-0.5 shrink-0" />
