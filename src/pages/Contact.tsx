@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { CONTACT_EMAIL, CONTACT_PHONE, FORMSPREE_ENDPOINT, WHATSAPP_NUMBER } from "@/lib/contact";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -15,35 +16,47 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const name = formData.get("name")?.toString().trim();
-    const company = formData.get("company")?.toString().trim();
-    const email = formData.get("email")?.toString().trim();
-    const phone = formData.get("phone")?.toString().trim();
-    const message = formData.get("message")?.toString().trim();
+    const payload = {
+      name: formData.get("name")?.toString().trim() ?? "",
+      company: formData.get("company")?.toString().trim() ?? "",
+      email: formData.get("email")?.toString().trim() ?? "",
+      phone: formData.get("phone")?.toString().trim() ?? "",
+      message: formData.get("message")?.toString().trim() ?? "",
+    };
 
-    if (!name || !email || !message) {
+    if (!payload.name || !payload.email || !payload.message) {
       toast({
         title: "Champs requis",
         description: "Veuillez remplir tous les champs obligatoires.",
         variant: "destructive",
       });
-      setIsSubmitting(false);
       return;
     }
 
-    // Simulate form submission (replace with Formspree endpoint)
-    setTimeout(() => {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) throw new Error("Erreur réseau");
       toast({
         title: "Message envoyé !",
         description: "Nous vous répondrons sous 24h. Merci pour votre intérêt.",
       });
       form.reset();
+    } catch (err) {
+      toast({
+        title: "Échec de l'envoi",
+        description: "Une erreur est survenue. Réessayez ou contactez-nous via WhatsApp.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
