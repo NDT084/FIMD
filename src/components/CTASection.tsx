@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import { WHATSAPP_NUMBER } from "@/lib/contact";
 
 const CTASection = () => {
   return (
@@ -28,7 +29,7 @@ const CTASection = () => {
             </Button>
             <Button asChild size="lg" variant="hero-outline" className="text-base px-8 py-6">
               <a
-                href="https://wa.me/221XXXXXXXXX?text=Bonjour%20FIMD%20EI"
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour%20FIMD%20EI`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
