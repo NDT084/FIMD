@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/contact";
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <h3 className="font-heading text-2xl font-bold mb-4">FIMD EI</h3>
+            <img src="/fimd-ei.png" alt="FIMD EI" className="h-8 w-auto mb-4 brightness-0 invert" />
             <p className="text-sm opacity-70 leading-relaxed">
               Cabinet de conseil industriel spécialisé en performance, agroalimentaire et certifications en Afrique de l'Ouest et Centrale.
             </p>
@@ -58,11 +59,11 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm opacity-70">
                 <Mail size={16} />
-                <span>contact@fimd-ei.com</span>
+                <span>{CONTACT_EMAIL}</span>
               </li>
               <li className="flex items-center gap-2 text-sm opacity-70">
                 <Phone size={16} />
-                <span>+221 XX XXX XX XX</span>
+                <span>{CONTACT_PHONE}</span>
               </li>
               <li className="flex items-start gap-2 text-sm opacity-70">
                 <MapPin size={16} className="mt-0.5 shrink-0" />

@@ -36,10 +36,12 @@ const Navbar = () => {
       }`}
     >
       <div className="container-narrow flex items-center justify-between h-16 md:h-20 px-6">
-        <Link to="/" className="flex items-center gap-2">
-          <span className={`font-heading text-xl md:text-2xl font-bold tracking-tight transition-colors ${scrolled ? "text-primary" : "text-primary-foreground"}`}>
-            FIMD EI
-          </span>
+        <Link to="/" className="flex items-center gap-2" aria-label="FIMD EI — Accueil">
+          <img
+            src="/fimd-ei.png"
+            alt="FIMD EI"
+            className={`h-7 md:h-8 w-auto transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`}
+          />
         </Link>
 
         {/* Desktop nav */}

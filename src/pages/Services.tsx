@@ -7,6 +7,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
+import FAQSection from "@/components/FAQSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const services = [
@@ -153,6 +154,7 @@ const Services = () => {
         </div>
       </section>
 
+      <FAQSection />
       <CTASection />
       <Footer />
       <WhatsAppButton />

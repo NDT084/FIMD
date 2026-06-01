@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { CONTACT_EMAIL, WHATSAPP_NUMBER } from "@/lib/contact";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -9,8 +10,8 @@ const structuredData = {
       "name": "FIMD EI",
       "description": "Cabinet de conseil industriel spécialisé en performance, agroalimentaire et certifications en Afrique de l'Ouest et Centrale.",
       "url": "https://fimd-ei.com",
-      "telephone": "+221XXXXXXXXX",
-      "email": "contact@fimd-ei.com",
+      "telephone": `+${WHATSAPP_NUMBER}`,
+      "email": CONTACT_EMAIL,
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Dakar",
