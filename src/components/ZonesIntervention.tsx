@@ -1,20 +1,27 @@
 import { motion } from "framer-motion";
 
 const countries = [
-  { code: "SN", name: "Sénégal", flag: "🇸🇳" },
-  { code: "GN", name: "Guinée", flag: "🇬🇳" },
-  { code: "ML", name: "Mali", flag: "🇲🇱" },
-  { code: "BF", name: "Burkina Faso", flag: "🇧🇫" },
-  { code: "GM", name: "Gambie", flag: "🇬🇲" },
-  { code: "CM", name: "Cameroun", flag: "🇨🇲" },
-  { code: "NG", name: "Nigeria", flag: "🇳🇬" },
+  { code: "sn", name: "Sénégal" },
+  { code: "gn", name: "Guinée" },
+  { code: "ml", name: "Mali" },
+  { code: "bf", name: "Burkina Faso" },
+  { code: "gm", name: "Gambie" },
+  { code: "cm", name: "Cameroun" },
+  { code: "ng", name: "Nigeria" },
 ];
 
 const FlagCard = ({ country }: { country: (typeof countries)[0] }) => (
-  <div className="flex flex-col items-center justify-center gap-3 px-8 py-6 rounded-2xl border border-border bg-card hover:border-primary/30 transition-all duration-300 shrink-0 select-none">
-    <span className="text-5xl md:text-6xl leading-none" role="img" aria-label={`Drapeau ${country.name}`}>
-      {country.flag}
-    </span>
+  <div className="flex flex-col items-center justify-center gap-3 px-8 py-6 rounded-2xl border border-border bg-card hover:border-primary/30 hover:shadow-lg transition-all duration-300 shrink-0 select-none">
+    <img
+      src={`https://flagcdn.com/w160/${country.code}.png`}
+      srcSet={`https://flagcdn.com/w320/${country.code}.png 2x`}
+      width={96}
+      height={64}
+      alt={`Drapeau ${country.name}`}
+      loading="lazy"
+      className="w-24 h-16 object-cover rounded-md shadow-md ring-1 ring-border"
+      draggable={false}
+    />
     <span className="text-sm font-semibold text-foreground whitespace-nowrap">
       {country.name}
     </span>
