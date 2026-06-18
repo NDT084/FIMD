@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/fimd-group-logo.jpeg.asset.json";
+import logoAsset from "@/assets/logo.jpeg";
 
 const navLinks = [
   { href: "#accueil", label: "Accueil" },
