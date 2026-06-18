@@ -1,6 +1,6 @@
 import { Mail, MapPin, Linkedin, Youtube, Facebook } from "lucide-react";
 import { CONTACT_EMAIL, OFFICES, SOCIAL_LINKS } from "@/lib/contact";
-import logoAsset from "@/assets/fimd-group-logo.jpeg.asset.json";
+import logo from "@/assets/logo.jpeg";
 
 const quickLinks = [
   { href: "#accueil", label: "Accueil" },
@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="lg:col-span-1">
             <span className="inline-flex bg-white rounded-md px-2 py-1 mb-4">
-              <img src={logoAsset.url} alt="FIMD GROUP" className="h-9 w-auto" />
+              <img src={logo} alt="FIMD GROUP" className="h-9 w-auto" />
             </span>
             <p className="text-sm opacity-70 leading-relaxed">
               Cabinet d'excellence opérationnelle. Nous transformons la performance industrielle en résultats durables — Afrique, Portugal, Irlande.

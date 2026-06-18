@@ -50,7 +50,7 @@ const FounderSection = () => {
           >
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl ring-1 ring-primary/30">
               <img
-                src={founder.url}
+                src={founder}
                 alt="Basile Kouamen — Fondateur de FIMD GROUP"
                 className="w-full h-full object-cover"
               />

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/fimd-group-logo.jpeg.asset.json";
+import logo from "@/assets/logo.jpeg";
 
 const navLinks = [
   { href: "#accueil", label: "Accueil" },
@@ -48,7 +48,7 @@ const Navbar = () => {
           aria-label="FIMD GROUP — Accueil"
         >
           <span className="inline-flex items-center justify-center bg-white rounded-md px-2 py-1 shadow-sm">
-            <img src={logoAsset.url} alt="FIMD GROUP" className="h-7 md:h-9 w-auto" />
+            <img src={logo} alt="FIMD GROUP" className="h-7 md:h-9 w-auto" />
           </span>
         </a>
 
