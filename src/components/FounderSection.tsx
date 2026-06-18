@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Quote } from "lucide-react";
-import founder from "@/assets/basile-kouamen.jpeg.asset.json";
+import founder from "@/assets/fondateur.jpeg";
 
 const expertise = [
   "Direction des opérations manufacturières",
