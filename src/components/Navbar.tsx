@@ -1,31 +1,36 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoAsset from "@/assets/fimd-group-logo.jpeg.asset.json";
 
 const navLinks = [
-  { href: "/", label: "Accueil" },
-  { href: "/a-propos", label: "À Propos" },
-  { href: "/services", label: "Services" },
-  { href: "/expertise-produits", label: "Expertise Produits" },
-  { href: "/contact", label: "Contact" },
+  { href: "#accueil", label: "Accueil" },
+  { href: "#a-propos", label: "À propos" },
+  { href: "#services", label: "Services" },
+  { href: "#realisations", label: "Réalisations" },
+  { href: "#fondateur", label: "Le Fondateur" },
+  { href: "#blog", label: "Blog" },
+  { href: "#contact", label: "Contact" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
+  const handleAnchor = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     setMobileOpen(false);
-  }, [location.pathname]);
+  };
 
   return (
     <header
@@ -36,35 +41,37 @@ const Navbar = () => {
       }`}
     >
       <div className="container-narrow flex items-center justify-between h-16 md:h-20 px-6">
-        <Link to="/" className="flex items-center gap-2" aria-label="FIMD EI — Accueil">
-          <img
-            src="/fimd-ei.png"
-            alt="FIMD EI"
-            className={`h-7 md:h-8 w-auto transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`}
-          />
-        </Link>
+        <a
+          href="#accueil"
+          onClick={(e) => handleAnchor(e, "#accueil")}
+          className="flex items-center gap-2"
+          aria-label="FIMD GROUP — Accueil"
+        >
+          <span className="inline-flex items-center justify-center bg-white rounded-md px-2 py-1 shadow-sm">
+            <img src={logoAsset.url} alt="FIMD GROUP" className="h-7 md:h-9 w-auto" />
+          </span>
+        </a>
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.href}
-              to={link.href}
+              href={link.href}
+              onClick={(e) => handleAnchor(e, link.href)}
               className={`text-sm font-medium transition-colors hover:text-primary ${
-                location.pathname === link.href
-                  ? scrolled ? "text-primary" : "text-primary-foreground"
-                  : scrolled ? "text-foreground/70" : "text-primary-foreground/70"
+                scrolled ? "text-foreground/80" : "text-primary-foreground/90"
               }`}
             >
               {link.label}
-            </Link>
+            </a>
           ))}
           <Button asChild size="sm" variant={scrolled ? "default" : "hero"}>
-            <Link to="/contact">Demander un diagnostic</Link>
+            <a href="#contact" onClick={(e) => handleAnchor(e, "#contact")}>
+              Demander un Diagnostic Gratuit
+            </a>
           </Button>
         </nav>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className={`lg:hidden p-2 transition-colors ${scrolled ? "text-foreground" : "text-primary-foreground"}`}
@@ -74,7 +81,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -85,18 +91,19 @@ const Navbar = () => {
           >
             <nav className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.href}
-                  to={link.href}
-                  className={`text-base font-medium transition-colors py-2 ${
-                    location.pathname === link.href ? "text-primary" : "text-foreground/70"
-                  }`}
+                  href={link.href}
+                  onClick={(e) => handleAnchor(e, link.href)}
+                  className="text-base font-medium py-2 text-foreground/80 hover:text-primary"
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
               <Button asChild className="mt-2">
-                <Link to="/contact">Demander un diagnostic</Link>
+                <a href="#contact" onClick={(e) => handleAnchor(e, "#contact")}>
+                  Demander un Diagnostic Gratuit
+                </a>
               </Button>
             </nav>
           </motion.div>
