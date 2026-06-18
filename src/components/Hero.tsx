@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
-import heroImage from "@/assets/hero-industrial.jpg";
+import heroImage from "@/assets/fondateur.jpeg";
 
 const stats = [
   { value: 15, suffix: "%", label: "Réduction des coûts" },
