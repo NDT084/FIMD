@@ -5,69 +5,61 @@ const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
-      "@id": "https://fimd-ei.com/#organization",
-      "name": "FIMD EI",
-      "description": "Cabinet de conseil industriel spécialisé en performance, agroalimentaire et certifications en Afrique de l'Ouest et Centrale.",
-      "url": "https://fimd-ei.com",
+      "@type": "Organization",
+      "@id": "https://fimdgroup.com/#organization",
+      "name": "FIMD GROUP",
+      "description": "Cabinet d'excellence opérationnelle et de performance industrielle — Afrique, Portugal, Irlande.",
+      "url": "https://fimdgroup.com",
       "telephone": `+${WHATSAPP_NUMBER}`,
       "email": CONTACT_EMAIL,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dakar",
-        "addressCountry": "SN"
-      },
-      "areaServed": [
-        { "@type": "Country", "name": "Sénégal" },
-        { "@type": "Country", "name": "Guinée" },
-        { "@type": "Country", "name": "Mali" },
-        { "@type": "Country", "name": "Burkina Faso" },
-        { "@type": "Country", "name": "Gambie" },
-        { "@type": "Country", "name": "Cameroun" },
-        { "@type": "Country", "name": "Nigeria" }
+      "address": [
+        { "@type": "PostalAddress", "addressLocality": "Dakar", "addressCountry": "SN" },
+        { "@type": "PostalAddress", "addressLocality": "Porto", "addressCountry": "PT" },
+        { "@type": "PostalAddress", "addressCountry": "IE" },
       ],
-      "knowsLanguage": ["fr"],
-      "sameAs": []
+      "areaServed": [
+        "Sénégal", "Côte d'Ivoire", "Ghana", "Cameroun", "Nigeria",
+        "RD Congo", "Maroc", "Portugal", "Irlande",
+      ].map((name) => ({ "@type": "Country", name })),
+      "knowsLanguage": ["fr", "en"],
+      "sameAs": [],
     },
     {
       "@type": "Service",
-      "serviceType": "Performance Industrielle",
-      "provider": { "@id": "https://fimd-ei.com/#organization" },
-      "description": "Optimisation des lignes de production, réduction des coûts opérationnels et amélioration de la productivité.",
-      "areaServed": { "@type": "Place", "name": "Afrique de l'Ouest et Centrale" }
+      "serviceType": "Diagnostic Industriel",
+      "provider": { "@id": "https://fimdgroup.com/#organization" },
+      "description": "Évaluation complète de la performance industrielle : productivité, qualité, maintenance, énergie, coûts, sécurité.",
     },
     {
       "@type": "Service",
-      "serviceType": "Développement Produits Agroalimentaires",
-      "provider": { "@id": "https://fimd-ei.com/#organization" },
-      "description": "Formulation de recettes bouillons et boissons, optimisation des coûts matières et industrialisation."
+      "serviceType": "Réduction des Coûts Industriels",
+      "provider": { "@id": "https://fimdgroup.com/#organization" },
+      "description": "Identification et élimination des coûts cachés : 5 à 15 % de réduction typiques.",
     },
     {
       "@type": "Service",
-      "serviceType": "QHSE & Certifications ISO HACCP",
-      "provider": { "@id": "https://fimd-ei.com/#organization" },
-      "description": "Mise en conformité ISO / HACCP, sécurité industrielle et audits réglementaires."
+      "serviceType": "Amélioration TRS / OEE",
+      "provider": { "@id": "https://fimdgroup.com/#organization" },
+      "description": "Augmentation de la capacité sans investissement majeur : disponibilité, performance, qualité.",
     },
     {
       "@type": "Service",
-      "serviceType": "Projets Industriels Greenfield Brownfield",
-      "provider": { "@id": "https://fimd-ei.com/#organization" },
-      "description": "Conception et suivi d'usines Greenfield & Brownfield, gestion de projets complexes."
+      "serviceType": "Élimination des Pertes",
+      "provider": { "@id": "https://fimdgroup.com/#organization" },
+      "description": "Élimination systématique : arrêts, rebuts, surconsommations, attentes, changements de format.",
     },
     {
       "@type": "Service",
-      "serviceType": "Expertise Judiciaire Industrielle",
-      "provider": { "@id": "https://fimd-ei.com/#organization" },
-      "description": "Rapports techniques pour tribunaux, analyse de litiges industriels."
-    }
-  ]
+      "serviceType": "Transfert de Compétences",
+      "provider": { "@id": "https://fimdgroup.com/#organization" },
+      "description": "Former, accompagner, certifier, transférer — Lean, TPM, Kaizen, Cost Deployment.",
+    },
+  ],
 };
 
 const SchemaMarkup = () => (
   <Helmet>
-    <script type="application/ld+json">
-      {JSON.stringify(structuredData)}
-    </script>
+    <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
   </Helmet>
 );
 

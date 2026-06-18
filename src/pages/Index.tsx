@@ -1,14 +1,14 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import TrustBand from "@/components/TrustBand";
+import AboutSection from "@/components/AboutSection";
+import ProgramsSection from "@/components/ProgramsSection";
+import MethodologySection from "@/components/MethodologySection";
+import CaseStudies from "@/components/CaseStudiesSection";
+import KaizenGallery from "@/components/KaizenGallery";
 import ClientsBand from "@/components/ClientsBand";
-import ExpertiseCards from "@/components/ExpertiseCards";
-import StatsSection from "@/components/StatsSection";
-import WhyUsSection from "@/components/WhyUsSection";
-import ProcessSection from "@/components/ProcessSection";
-import Testimonials from "@/components/Testimonials";
-import ZonesIntervention from "@/components/ZonesIntervention";
-import CTASection from "@/components/CTASection";
+import FounderSection from "@/components/FounderSection";
+import BlogSection from "@/components/BlogSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -16,16 +16,18 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Hero />
-      <TrustBand />
-      <ClientsBand />
-      <ExpertiseCards />
-      <StatsSection />
-      <WhyUsSection />
-      <ProcessSection />
-      <Testimonials />
-      <ZonesIntervention />
-      <CTASection />
+      <main>
+        <Hero />
+        <AboutSection />
+        <ProgramsSection />
+        <MethodologySection />
+        <KaizenGallery />
+        <CaseStudies />
+        <ClientsBand />
+        <FounderSection />
+        <BlogSection />
+        <ContactSection />
+      </main>
       <Footer />
       <WhatsAppButton />
     </div>

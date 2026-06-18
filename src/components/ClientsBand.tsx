@@ -1,65 +1,42 @@
 import { motion } from "framer-motion";
 
 const clients = [
-  { name: "Nestlé", logo: "Nestlé" },
-  { name: "Patisen", logo: "Patisen" },
-  { name: "SOBOA", logo: "SOBOA" },
-  { name: "GMD", logo: "GMD" },
-  { name: "SEDIMA", logo: "SEDIMA" },
-  { name: "Olam", logo: "Olam" },
+  "Nestlé", "Diageo", "Godrej CP", "Senico SA", "Printpadix",
+  "Groupe Sapou", "Mitchimie", "Freshco Sarl", "Brasaf",
 ];
 
 const ClientsBand = () => {
   return (
-    <section className="bg-background border-y border-border py-16 overflow-hidden">
-      <div className="container-narrow px-6">
+    <section className="section-padding bg-muted">
+      <div className="container-narrow">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <span className="text-xs font-semibold text-primary uppercase tracking-widest">
-            Ils nous font confiance
-          </span>
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Partenaires</span>
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mt-3">
-            Des acteurs majeurs de l'industrie africaine
+            Ils nous font confiance
           </h2>
         </motion.div>
 
-        {/* Desktop: grille statique */}
-        <div className="hidden md:grid grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-          {clients.map((c, i) => (
+        <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-9 gap-3 md:gap-4">
+          {clients.map((name, i) => (
             <motion.div
-              key={c.name}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              key={name}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="flex items-center justify-center h-16 px-4 rounded-xl border border-border bg-card grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="aspect-[5/3] flex items-center justify-center rounded-xl bg-card border border-border text-foreground/50 hover:text-primary hover:border-primary/40 hover:shadow-md transition-all"
             >
-              <span className="font-heading font-bold text-lg text-foreground tracking-wide">
-                {c.logo}
+              <span className="text-xs md:text-sm font-heading font-bold tracking-tight px-2 text-center">
+                {name}
               </span>
             </motion.div>
           ))}
-        </div>
-
-        {/* Mobile: défilement automatique */}
-        <div className="md:hidden relative overflow-hidden">
-          <div className="flex gap-6 animate-marquee whitespace-nowrap">
-            {[...clients, ...clients].map((c, i) => (
-              <div
-                key={`${c.name}-${i}`}
-                className="flex items-center justify-center h-14 px-6 rounded-xl border border-border bg-card grayscale opacity-70 shrink-0"
-              >
-                <span className="font-heading font-bold text-base text-foreground tracking-wide">
-                  {c.logo}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
