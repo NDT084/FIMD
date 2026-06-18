@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+<<<<<<< HEAD
 import logo from "@/assets/logo.jpeg";
+=======
+import logoAsset from "@/assets/logo.jpeg";
+>>>>>>> e9a2ef4cca705eeea93f40b5c1c507e74fd90367
 
 const navLinks = [
   { href: "#accueil", label: "Accueil" },
