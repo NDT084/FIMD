@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { WHATSAPP_NUMBER } from "@/lib/contact";
 
-const WHATSAPP_MESSAGE = encodeURIComponent("Bonjour FIMD EI, je souhaite en savoir plus sur vos services de conseil industriel.");
+const WHATSAPP_MESSAGE = encodeURIComponent("Bonjour FIMD GROUP, je souhaite en savoir plus sur vos programmes.");
 
 const WhatsAppButton = () => {
   return (
